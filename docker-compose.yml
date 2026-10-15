@@ -1,0 +1,13 @@
+# Local MongoDB Atlas (includes Atlas Vector Search) - no cloud account needed.
+# Ollama is expected to run on the host (ollama serve). To use Atlas in the cloud instead,
+# skip this file and set MONGODB_URI to your mongodb+srv:// connection string.
+services:
+  mongodb:
+    image: mongodb/mongodb-atlas-local:latest
+    container_name: sales-agent-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+volumes:
+  mongo-data:
